@@ -1,7 +1,7 @@
 function validateContact(prenom, nom, telephone, email){
     let prenomRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\-]+$/;
     let nomRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\-]+$/;
-    let telephoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+    let telephoneRegex = /[0-9]{3}-[0-9]{3}-[0-9]{4}/
     let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
     if(prenom === undefined && nom === undefined && telephone === undefined && email === undefined){
@@ -15,9 +15,7 @@ function validateContact(prenom, nom, telephone, email){
     }else if(!nomRegex.test(nom)){
         return "Le nom n'est pas valide";
     }else if(!telephoneRegex.test(telephone)){
-        return "Le téléphone n'est pas valide";
-    }else if(!telephoneRegex.test(telephone)){
-        return "Le téléphone n'est pas valide";
+        return "Le téléphone n'est pas valide (xxx-xxx-xxxx)";
     }else if(!emailRegex.test(email)){
         return "Le email n'est pas valide";
     }else{

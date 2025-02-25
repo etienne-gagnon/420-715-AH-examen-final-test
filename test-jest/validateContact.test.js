@@ -34,7 +34,7 @@ test('Le nom n\est pas valide', () => {
 
 test('Le téléphone n\est pas valide', () => {
     // fonction complète qui fonctionnerait: validateContact("Étienne", "Gagnon", "111-222-3333", "info@exemple.com") 
-    expect(validateContact("Étienne", "Gagnon", "a11-222-3333", "info@exemple.com")).toBe("Le téléphone n'est pas valide");
+    expect(validateContact("Étienne", "Gagnon", "a11-222-3333", "info@exemple.com")).toBe("Le téléphone n'est pas valide (xxx-xxx-xxxx)");
     });
 
 test('Le email n\est pas valide', () => {
