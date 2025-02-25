@@ -1,4 +1,5 @@
 let submitBtn = document.getElementById('submitBtn');
+let form = document.getElementById('form');
 let error = document.getElementById('error');
 let validateContactStatus = false;
 
@@ -47,7 +48,7 @@ function addContact(prenom, nom, telephone, email){
         error.innerText = "Un ou plusieurs champs sont vides";
         error.hidden = false;
     }else{
-        console.log("Contact ajouter");
+        form.submit();
         error.innerText = "";
         error.hidden = true;
     }

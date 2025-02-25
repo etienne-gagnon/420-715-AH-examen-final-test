@@ -1,16 +1,1 @@
-[
-    {
-        "id": 1, 
-        "prenom": "Étienne",
-        "nom": "Gagnon",
-        "telephone": "111-111-1111",
-        "email": "info@exemple.com"
-    },
-    {
-        "id": 2, 
-        "prenom": "Charles",
-        "nom": "Beauchamps",
-        "telephone": "222-222-2222",
-        "email": "info@test.com"
-    }
-]
+[{"id":1,"prenom":"Étienne","telephone":"333-333-3333","email":"etigag2002@gmail.com"},{"id":2,"prenom":"Étienne","telephone":"333-333-3333","email":"etigag2002@gmail.com"}]
