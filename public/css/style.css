@@ -1,0 +1,129 @@
+:root{
+    --dark-color:hsl(0, 0%, 0%);
+    --medium-color:hsl(0, 0%, 50%);
+    --light-color:hsl(0, 0%, 75%);
+    --lighter-color:hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color:var(--dark-color);
+    margin:0;
+}
+
+button{
+    border:none;
+    padding:10px;
+}
+
+button.light{
+    background-color: var(--lighter-color);
+    color:var(--dark-color);
+}
+
+button.light:hover{
+    background-color: var(--dark-color);
+    color:var(--lighter-color);
+    cursor: pointer;
+}
+
+button.dark{
+    background-color: var(--medium-color);
+    color:var(--lighter-color);
+}
+
+button.dark:hover{
+    background-color: var(--dark-color);
+    color:var(--lighter-color);
+    cursor: pointer;
+}
+
+body{
+
+    background-color: white;
+    width:90%;
+    margin:50px auto;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+#header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    align-items: center;
+    background-color: var(--light-color);
+    padding:20px ;    
+}
+
+#header h1{
+    color:var(--medium-color);
+}
+
+#contacts-table{
+    width:100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+#contacts-table th,
+#contacts-table td{
+    border:1px solid var(--dark-color);
+    padding:10px 20px;
+    text-align: center;
+}
+
+#contacts-table thead th{
+    background-color: var(--light-color);
+}
+
+form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: var(--light-color);
+    padding:50px;
+    max-width: 1000px;
+    margin:50px auto;
+}
+
+form h1{
+    margin-bottom:25px;
+}
+form label{
+    margin-bottom:-15px;
+}
+
+form input{
+    height:50px;
+    padding:15px;
+    border:none;
+    background-color: var(--lighter-color);
+    outline:none;
+}
+
+form button{
+    height:60px;
+    margin-bottom:25px;
+}
