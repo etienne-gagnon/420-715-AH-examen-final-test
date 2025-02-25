@@ -16,6 +16,11 @@ app.get('/add-contact', (req, res) => {
     res.sendFile(__dirname + '/public/views/add-contact.html');
 });
 
+app.get('/add-contact', (req, res) => {
+    res.sendFile(__dirname + '/public/views/edit-contact.html');
+});
+
+
 app.listen(port, () => {
     console.log('Connected ! \n http://localhost:3000');
 });
