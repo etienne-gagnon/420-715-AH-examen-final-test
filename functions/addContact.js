@@ -1,6 +1,6 @@
 function addContact(prenom, nom, telephone, email){
     if(prenom === undefined && nom === undefined && telephone === undefined && email === undefined){
-        return "Aucune valeur n'a été reçu lors de la soumission";
+        return "Aucune valeur n'a été reçu lors de l'envoi du formulaire";
     }else if(prenom === undefined || nom === undefined || telephone === undefined || email === undefined){
         return "Tous les champs doivent être remplis";
     }else if(prenom.trim() === "" || nom.trim() === "" || telephone.trim() === "" || email.trim() === ""){
