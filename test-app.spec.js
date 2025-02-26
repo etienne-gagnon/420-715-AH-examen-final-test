@@ -6,18 +6,23 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Ajouter un contact' }).click();
   await page.getByRole('textbox', { name: 'Prénom' }).click();
   await page.getByRole('textbox', { name: 'Prénom' }).fill('Étienne');
-  await page.getByRole('textbox', { name: 'Nom', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Prénom' }).press('Tab');
   await page.getByRole('textbox', { name: 'Nom', exact: true }).fill('Gagnon');
-  await page.getByRole('textbox', { name: 'Téléphone (xxx-xxx-xxxx)' }).click();
-  await page.getByRole('textbox', { name: 'Téléphone (xxx-xxx-xxxx)' }).fill('123-123-1234');
-  await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('info@exemple.com');
+  await page.getByRole('textbox', { name: 'Nom', exact: true }).press('Tab');
+  await page.getByRole('textbox', { name: 'Téléphone (xxx-xxx-xxxx)' }).fill('111-111-1111');
+  await page.getByRole('textbox', { name: 'Téléphone (xxx-xxx-xxxx)' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Email' }).fill('info@exemple.ca');
+  await page.getByRole('textbox', { name: 'Email' }).press('Tab');
   await page.getByRole('button', { name: 'Ajouter le contact' }).click();
-  await page.getByRole('link', { name: 'Modifier' }).first().click();
-  await page.getByRole('textbox', { name: 'Prénom' }).click();
-  await page.getByRole('textbox', { name: 'Prénom' }).fill('Charles');
+  await page.getByRole('link', { name: 'Modifier' }).click();
+  await page.getByRole('textbox', { name: 'Prénom' }).dblclick();
+  await page.getByRole('textbox', { name: 'Prénom' }).fill('bonjour');
   await page.getByRole('button', { name: 'Ajouter le contact' }).click();
-  await page.getByRole('link', { name: 'Supprimer' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByText('Supprimer').click();
   await browser.close();
 });
 
