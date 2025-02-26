@@ -1,4 +1,4 @@
-name: CI - Test Jest
+name: CI - Test Playwright
 
 on:
   push:
