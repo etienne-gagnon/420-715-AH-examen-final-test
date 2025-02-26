@@ -27,13 +27,14 @@ app.get('/api/get-contacts', (req, res) => {
 
 // Ajouter un contact
 app.post('/add-contact', (req, res) => {
-        let newData = {
+    let newData = {
         "id": contactObject.length + 1, 
         "prenom": req.body.prenom,
         "nom": req.body.nom,
         "telephone": req.body.telephone,
         "email": req.body.email
     }
+    
     contactObject.push(newData)
 
     let newObject = JSON.stringify(contactObject);
