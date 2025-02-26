@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/updateContact.js" defer></script>
 </head>
 <body>
    <form action="">
         <h1>Modification d'un contact</h1>
         <label for="prenom">Prénom</label>
-        <input type="text" name="prenom" placeholder="Prénom">
+        <input type="text" name="prenom" placeholder="Prénom" id="prenom">
 
         <label for="nom">Nom</label>
-        <input type="text" name="Nom" placeholder="Nom">
+        <input type="text" name="nom" placeholder="Nom" id="nom">
 
-        <label for="telephone">Téléphone</label>
-        <input type="text" name="telephone" placeholder="Téléphone">
+        <label for="telephone">Téléphone (xxx-xxx-xxxx)</label>
+        <input type="text" name="telephone" placeholder="Téléphone" id="telephone">
 
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email" id="email">
         <button type="submit" class="dark">Enregistrer</button>
         <a href="/">Revenir aux contacts</a>
     </form>

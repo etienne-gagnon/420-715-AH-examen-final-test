@@ -20,6 +20,10 @@ app.get('/add-contact', (req, res) => {
     res.sendFile(__dirname + '/public/views/add-contact.html');
 });
 
+// Get contacts
+app.get('/api/get-contacts', (req, res) => {
+    res.json(contactObject);
+});
 
 // Ajouter un contact
 app.post('/add-contact', (req, res) => {
@@ -38,10 +42,12 @@ app.post('/add-contact', (req, res) => {
     res.redirect('/');
 });
 
-// 
+
 app.get('/edit-contact', (req, res) => {
     res.sendFile(__dirname + '/public/views/edit-contact.html');
 });
+
+
 
 
 app.listen(port, () => {
