@@ -20,10 +20,10 @@ app.get('/add-contact', (req, res) => {
     res.sendFile(__dirname + '/public/views/add-contact.html');
 });
 
-app.post('/add-contact', (req, res) => {
-    res.sendFile(__dirname + '/public/views/add-contact.html');
 
-    let newData = {
+// Ajouter un contact
+app.post('/add-contact', (req, res) => {
+        let newData = {
         "id": contactObject.length + 1, 
         "prenom": req.body.prenom,
         "nom": req.body.nom,
@@ -34,9 +34,12 @@ app.post('/add-contact', (req, res) => {
 
     let newObject = JSON.stringify(contactObject);
     fs.writeFileSync('databases/contacts.json', newObject);
+
+    res.redirect('/');
 });
 
-app.get('/add-contact', (req, res) => {
+// 
+app.get('/edit-contact', (req, res) => {
     res.sendFile(__dirname + '/public/views/edit-contact.html');
 });
 
