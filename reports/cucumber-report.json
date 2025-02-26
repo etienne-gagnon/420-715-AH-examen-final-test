@@ -1,0 +1,224 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "add-contact;add-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Add contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that user1 am on the \"add-contact\" page",
+            "match": {
+              "location": "features\\steps_definitions\\addContact.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2305800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user1 enter \"Étienne\" as prenom, \"Gagnon\" as nom, \"111-111-1111\" as telephone and \"info@exemple.com\" as email",
+            "match": {
+              "location": "features\\steps_definitions\\addContact.steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 654999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user1 press \"Ajouter le contact\" button",
+            "match": {
+              "location": "features\\steps_definitions\\addContact.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 368500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "user1 should see \"Le contact à été ajouté avec succès\"",
+            "match": {
+              "location": "features\\steps_definitions\\addContact.steps.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 494499
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "add-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Add contact",
+    "tags": [],
+    "uri": "features\\addContact.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "delete-contact;delete-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Delete contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that user2 am on the \"contact\" page",
+            "match": {
+              "location": "features\\steps_definitions\\deleteContact.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 192299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user2 enter \"1\" as userId",
+            "match": {
+              "location": "features\\steps_definitions\\deleteContact.steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 412600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user2 press \"Supprimer le contact\" button",
+            "match": {
+              "location": "features\\steps_definitions\\deleteContact.steps.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 571099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "user2 should see \"Le contact à été supprimé avec succès\"",
+            "match": {
+              "location": "features\\steps_definitions\\deleteContact.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 295100
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "delete-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Delete contact",
+    "tags": [],
+    "uri": "features\\deleteContact.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "update-contact;update-contact",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Update contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "that user3 am on the \"edit-contact\" page",
+            "match": {
+              "location": "features\\steps_definitions\\updateContact.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 764799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user3 enter \"Étienne\" as prenom, \"Gagnon\" as nom, \"111-111-1111\" as telephone, \"info@exemple.com\" as email and the userId \"existe\"",
+            "match": {
+              "location": "features\\steps_definitions\\updateContact.steps.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 321500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user3 press \"Mettre à jour le contact\" button",
+            "match": {
+              "location": "features\\steps_definitions\\updateContact.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 260099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "user3 should see \"Le contact à été mis à jour avec succès\"",
+            "match": {
+              "location": "features\\steps_definitions\\updateContact.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 217699
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "update-contact",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Update contact",
+    "tags": [],
+    "uri": "features\\updateContact.feature"
+  }
+]
