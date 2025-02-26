@@ -49,6 +49,28 @@ app.get('/edit-contact', (req, res) => {
 });
 
 
+// Edit contact
+app.post('/edit-contact', (req, res) => {
+    let newData = {
+        "id": contactObject.length + 1, 
+        "prenom": req.body.prenom,
+        "nom": req.body.nom,
+        "telephone": req.body.telephone,
+        "email": req.body.email
+    }
+    
+    contactObject.push(newData)
+
+    let newObject = JSON.stringify(contactObject);
+    fs.writeFileSync('databases/contacts.json', newObject);
+
+    res.redirect('/');
+});
+
+
+
+
+
 
 
 app.listen(port, () => {

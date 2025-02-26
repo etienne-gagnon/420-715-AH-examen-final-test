@@ -23,6 +23,7 @@ fetch('/api/get-contacts')
                 nomInput.value = contact.nom;
                 telephoneInput.value = contact.telephone;
                 emailInput.value = contact.email;
+                existingUserId = true;
                 return;
             }else{
                 if(response.length === iteration) {
@@ -35,16 +36,87 @@ fetch('/api/get-contacts')
     });
 
 
+
+
+let submitBtn = document.getElementById('submitBtn');
+let form = document.getElementById('form');
+let error = document.getElementById('error');
+let validateContactStatus = false;
+    
+    function validateContact(prenom, nom, telephone, email){
+        let prenomRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\-]+$/;
+        let nomRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\-]+$/;
+        let telephoneRegex = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+        let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    
+        if(prenom === undefined && nom === undefined && telephone === undefined && email === undefined){
+            error.innerText = "Aucune valeur n'a été reçu lors de l'envoi du formulaire";
+            
+        }else if(prenom === undefined || nom === undefined || telephone === undefined || email === undefined){
+            error.innerText = "Tous les champs doivent être remplis";
+            error.hidden = false;
+        }else if(prenom.trim() === "" || nom.trim() === "" || telephone.trim() === "" || email.trim() === ""){
+            error.innerText = "Un ou plusieurs champs sont vides";
+            error.hidden = false;
+        }else if(!prenomRegex.test(prenom)){
+            error.innerText = "Le prénom n'est pas valide";
+            error.hidden = false;
+        }else if(!nomRegex.test(nom)){
+            error.innerText = "Le nom n'est pas valide";
+            error.hidden = false;
+        }else if(!telephoneRegex.test(telephone)){
+            error.innerText = "Le téléphone n'est pas valide (xxx-xxx-xxxx)";
+            error.hidden = false;
+        }else if(!emailRegex.test(email)){
+            error.innerText = "Le email n'est pas valide";
+            error.hidden = false;
+        }else{
+            validateContactStatus = true;
+            error.innerText = "";
+            error.hidden = true;
+        }
+    }
+    
+
 function updateContact(userId, prenom, nom, telephone, email){
     if(userId === undefined && prenom === undefined && nom === undefined && telephone === undefined && email === undefined){
-        return "Aucune valeur n'a été reçu lors de l'envoi du formulaire";
+        error.innerText = "Aucune valeur n'a été reçu lors de l'envoi du formulaire";
+        error.hidden = false;
     }else if(userId === undefined ||prenom === undefined || nom === undefined || telephone === undefined || email === undefined){
-        return "Tous les champs doivent être remplis";
+        error.innerText = "Tous les champs doivent être remplis";
+        error.hidden = false;
     }else if(userId === "" || prenom.trim() === "" || nom.trim() === "" || telephone.trim() === "" || email.trim() === ""){
-        return "Un ou plusieurs champs sont vides";
+        error.innerText = "Un ou plusieurs champs sont vides";
+        error.hidden = false;
     }else if(existingUserId == false){
-        return "L'utilisateur n'existe pas";
+        error.innerText = "L'utilisateur n'existe pas";
+        error.hidden = false;
     }else{
-        return "Contact modifié avec succès";
+        alert("Contact modifié avec succès");
+        let userIdInput = document.createElement("input");
+            userIdInput.type = "hidden";
+            userIdInput.name = "userId";
+        form.appendChild(userIdInput);
+        form.submit();
+        error.innerText = "";
+        error.hidden = true;
     }
 }
+
+
+submitBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    let userId = urlParams.get('id');
+    let prenom = document.getElementById('prenom').value;
+    let nom = document.getElementById('nom').value;
+    let telephone = document.getElementById('telephone').value;
+    let email = document.getElementById('email').value;
+
+    validateContact(prenom, nom, telephone, email);
+
+    if(validateContactStatus == true){
+        updateContact(userId, prenom, nom, telephone, email)
+    }
+
+});
