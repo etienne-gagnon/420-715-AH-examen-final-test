@@ -1,6 +1,7 @@
 
 
 let existingUserId = false;
+let userIdInput = document.getElementById('userId');
 let prenomInput = document.getElementById('prenom');
 let nomInput = document.getElementById('nom');
 let telephoneInput = document.getElementById('telephone');
@@ -19,6 +20,7 @@ fetch('/api/get-contacts')
         response.forEach(contact => {
             
             if(parseInt(contact.id) == parseInt(userId)) {
+                userIdInput.value = contact.id;
                 prenomInput.value = contact.prenom;
                 nomInput.value = contact.nom;
                 telephoneInput.value = contact.telephone;
@@ -92,11 +94,6 @@ function updateContact(userId, prenom, nom, telephone, email){
         error.innerText = "L'utilisateur n'existe pas";
         error.hidden = false;
     }else{
-        alert("Contact modifié avec succès");
-        let userIdInput = document.createElement("input");
-            userIdInput.type = "hidden";
-            userIdInput.name = "userId";
-        form.appendChild(userIdInput);
         form.submit();
         error.innerText = "";
         error.hidden = true;
@@ -107,7 +104,7 @@ function updateContact(userId, prenom, nom, telephone, email){
 submitBtn.addEventListener('click', function(e) {
     e.preventDefault();
 
-    let userId = urlParams.get('id');
+    let userId = document.getElementById('userId').value;;
     let prenom = document.getElementById('prenom').value;
     let nom = document.getElementById('nom').value;
     let telephone = document.getElementById('telephone').value;

@@ -12,7 +12,7 @@ fetch('/api/get-contacts')
                 <td>${contact.nom}</td>
                 <td>${contact.telephone}</td>
                 <td>${contact.email}</td>
-                <td><a href='edit-contact?id=${contact.id}'>Modifier</a> | <a>Supprimer</a></td>
+                <td><a href='edit-contact?id=${contact.id}'>Modifier</a> | <a href='delete-contact?id=${contact.id}'>Supprimer</a></td>
                 `;
 
             tbody.appendChild(tr);

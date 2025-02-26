@@ -49,25 +49,58 @@ app.get('/edit-contact', (req, res) => {
 });
 
 
-// Edit contact
+// Modifier un contact
 app.post('/edit-contact', (req, res) => {
-    let newData = {
-        "id": contactObject.length + 1, 
-        "prenom": req.body.prenom,
-        "nom": req.body.nom,
-        "telephone": req.body.telephone,
-        "email": req.body.email
+
+    let iteration = 1;
+    let contactUpdated = false;
+
+    contactObject.forEach(contact => {
+        if (parseInt(contact.id) === parseInt(req.body.userId)) {
+            contact.prenom = req.body.prenom;
+            contact.nom = req.body.nom;
+            contact.telephone = req.body.telephone;
+            contact.email = req.body.email;
+
+            contactUpdated = true;
+            return;
+        }
+
+        if (contactObject.length === iteration && !contactUpdated) {
+            console.log("Contact not found");
+            res.redirect("/");
+        }
+
+        iteration++;
+    });
+
+    if (contactUpdated) {
+        let updatedContacts = JSON.stringify(contactObject, null, 2);
+        fs.writeFileSync('databases/contacts.json', updatedContacts);
+
+        console.log("Contact updated and saved!");
+        res.redirect("/");
     }
-    
-    contactObject.push(newData)
-
-    let newObject = JSON.stringify(contactObject);
-    fs.writeFileSync('databases/contacts.json', newObject);
-
-    res.redirect('/');
 });
 
+// Delete un Contact
 
+app.get('/delete-contact', (req, res) => {
+    let contactId = parseInt(req.query.id);
+
+    let contactIndex = contactObject.findIndex(contact => contact.id === contactId);
+
+    if (contactIndex !== -1) {
+        contactObject.splice(contactIndex, 1);
+
+        let newObject = JSON.stringify(contactObject, null, 2);
+        fs.writeFileSync('databases/contacts.json', newObject);
+
+        res.redirect('/');
+    } else {
+        res.redirect('/');
+    }
+});
 
 
 
