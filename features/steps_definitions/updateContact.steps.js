@@ -3,13 +3,13 @@ const assert = require('assert');
 
 let page = { prenom: '', nom: '', telephone: '', email: '', userId: '', message:''};
 
-Given('that I am on the {string} page', (currentPage) => {
+Given('that user3 am on the {string} page', (currentPage) => {
     if (currentPage === "edit-contact") {
         page = { prenom: '', nom: '', telephone: '', email: '', userId: '', message:''};
     }
 });
 
-When('I enter {string} as prenom, {string} as nom, {string} as telephone, {string} as email and the userId {string}' , (prenom,nom,telephone,email, userId) => {
+When('user3 enter {string} as prenom, {string} as nom, {string} as telephone, {string} as email and the userId {string}' , (prenom,nom,telephone,email, userId) => {
     if (prenom !== "" && nom !== "" && telephone !== "" && email !== "" && userId === "existe") {
         page.prenom = prenom;
         page.nom = nom;
@@ -19,7 +19,7 @@ When('I enter {string} as prenom, {string} as nom, {string} as telephone, {strin
     }
 });
 
-When('I press {string} button', (button) => {
+When('user3 press {string} button', (button) => {
     if (button === "Mettre à jour le contact" && page.prenom !== "" && page.nom !== "" && page.telephone !== "" && page.email !== "" && page.userId === true) {
         page.message = "Le contact à été mis à jour avec succès";
     }else{
@@ -27,6 +27,6 @@ When('I press {string} button', (button) => {
     }
 });
 
-Then('I should see {string}', (expectedMessage) => {
+Then('user3 should see {string}', (expectedMessage) => {
     assert.strictEqual(page.message, expectedMessage);
 });
