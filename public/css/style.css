@@ -15,7 +15,7 @@
 
 button{
     border:none;
-    padding:10px;
+    padding:10px 20px;
 }
 
 button.light{
@@ -77,7 +77,7 @@ a:hover{
 }
 
 #header h1{
-    color:var(--medium-color);
+    color:var(--dark-color);
 }
 
 #contacts-table{
@@ -128,7 +128,10 @@ form button{
     margin-bottom:25px;
 }
 
+
 #error{
-    color:rgb(228, 65, 65);
+    color:white;
+    background-color: rgb(228, 65, 65);
+    padding:10px 20px;
     margin-top:-25px;
 }

@@ -5,6 +5,15 @@ fetch('/api/get-contacts')
     .then((body) => {
         let contacts = JSON.parse(body);
 
+        if(contacts.length == 0) {
+            let tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td colspan="5">Vous n'avez pas encore de contact</td>
+            `;
+
+            tbody.appendChild(tr);
+        }
+        
         contacts.forEach(contact => {
             let tr = document.createElement('tr');
                 tr.innerHTML = `
